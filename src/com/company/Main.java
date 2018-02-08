@@ -70,7 +70,7 @@ public class Main {
         System.out.println(PUODELIO_ACTION_100+ " - Juodos kavos puodelis");
         System.out.println(PUODELIO_ACTION_200+ " - Latte kavos puodelis");
         System.out.println(PUODELIO_ACTION_300+ " - Espresso kavos puodelis");
-        System.out.println("=11 12 15 ========Serviso veksmai=====================");
+        System.out.println("=======11 12 15 ========Serviso veksmai=====================");
         System.out.println(SERVICE_ACTION_1 + " - Sukurti N aparatu");
         System.out.println(SERVICE_ACTION_2 + " - Pasirinkti su kuriuo aparatu dirbti");
         System.out.println(SERVICE_ACTION_3 + " - Isplauti visus");
