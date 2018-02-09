@@ -49,6 +49,8 @@ public class KavosAparatas {
     private int panaudojimuSkaicius = 0;
     private boolean arPlauti = false;
 
+
+
     public void papildykCukru() {
         setCukrausKiekis(200);
     }
@@ -120,72 +122,47 @@ public class KavosAparatas {
         arPlauti = false;
     }
 
-    public void gaminkKava(String kavosRusis) {
-        switch (kavosRusis) {
-            case KAVA_JUODA:
-                this.gaminkJuoda();
 
-                break;
-            case KAVA_LATTE:
-                this.gaminkLatte();
-
-                break;
-            case KAVA_ESPRESSO:
-                this.gaminkEspresso();
-
-                break;
-        }
-
-    }
-
-    public KavosPuodelis gaminkKava(KavosPuodelis kp){
+    public KavosPuodelis gaminkKava(KavosPuodelis kp) {
         float vanduo;
         float cukrus;
         float kava;
         KavosPuodelis rez = null;
 
-        switch(kp.getKavosPavadinimas()){
-            case JUODA_KAVA:
-                vanduo = kp.getProduktuKiekis().getVandensKiekis();
-                cukrus = kp.getProduktuKiekis().getCukrausKiekis();
-                kava = kp.getProduktuKiekis().getKavosKiekis();
 
-                kp.setPuodelioTalpa(vanduo+cukrus+kava);
+        vanduo = kp.getProduktuKiekis().getVandensKiekis();
+        cukrus = kp.getProduktuKiekis().getCukrausKiekis();
+        kava = kp.getProduktuKiekis().getKavosKiekis();
 
-                gaminkJuoda(vanduo, cukrus, kava, kp);
-                kp.setArPagaminta(true);
+        kp.setPuodelioTalpa(vanduo + cukrus + kava);
 
-                rez = kp;
-                break;
-            case LATTE_KAVA:
-                vanduo = kp.getProduktuKiekis().getVandensKiekis();
-                cukrus = kp.getProduktuKiekis().getCukrausKiekis();
-                kava = kp.getProduktuKiekis().getKavosKiekis();
+        //gaminkJuoda(vanduo, cukrus, kava, kp);
 
-                kp.setPuodelioTalpa(vanduo+cukrus+kava);
+        if (arGaliuGaminti()) {
 
-                gaminkLatte(vanduo, cukrus, kava, kp);
-                kp.setArPagaminta(true);
+            arPlauti = getUzKiekPlauti() == 1;
+            setVandensKiekis(getVandensKiekis() - vanduo);
+            setCukrausKiekis(getCukrausKiekis() - cukrus);
+            setKavosKiekis(getKavosKiekis() - kava);
+            panaudojimuSkaicius++;
+            System.out.println("Puodelio talpa: " + kp.getPuodelioTalpa());
+            System.out.println("Produktai naudoti kavai: " + kp.getProduktuKiekis().toString());
+            System.out.println("Kavos pavadinimas: " + kp.getKavosPavadinimas());
+            //System.out.println("Ar pagamintas: " +kp.getKavosPavadinimas());
+            System.out.println("Informacija KavosPuodelis: " + kp.toString());
 
-                rez = kp;
-                break;
-            case ESPRESSO_KAVA:
-                vanduo = kp.getProduktuKiekis().getVandensKiekis();
-                cukrus = kp.getProduktuKiekis().getCukrausKiekis();
-                kava = kp.getProduktuKiekis().getKavosKiekis();
 
-                kp.setPuodelioTalpa(vanduo+cukrus+kava);
-
-                gaminkEspresso(vanduo, cukrus, kava, kp);
-
-                kp.setArPagaminta(true);
-                rez = kp;
-                break;
         }
+
+
+        kp.setArPagaminta(true);
+
+        rez = kp;
 
         return rez;
     }
 
+    /*09d. pakeitimas
     private void gaminkJuoda(float v, float c, float k, KavosPuodelis kp) {
         if (arGaliuGaminti()) {
 
@@ -238,7 +215,7 @@ public class KavosAparatas {
             System.out.println("Informacija KavosPuodelis: " +kp.toString());
 
         }
-    }
+    }*/
 
     private boolean arGaliuGaminti() {
         boolean result = true;
@@ -272,6 +249,28 @@ public class KavosAparatas {
         this.produktai = produktai;
     }
 
+
+
+    /*09d. pakeitimas
+    public void gaminkKava(String kavosRusis) {
+        switch (kavosRusis) {
+            case KAVA_JUODA:
+                this.gaminkJuoda();
+
+                break;
+            case KAVA_LATTE:
+                this.gaminkLatte();
+
+                break;
+            case KAVA_ESPRESSO:
+                this.gaminkEspresso();
+
+                break;
+        }
+
+    }*/
+
+    /*09d. pakeitimas
     private void gaminkJuoda() {
         if (arGaliuGaminti()) {
 
@@ -346,6 +345,6 @@ public class KavosAparatas {
                     "  `-__-'");
         }
     }
-
+*/
 
 }

@@ -10,6 +10,16 @@ import servisai.KavosServisas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
+
+
+// padaryt kad veiktu su 1 2 3 ivedimais, daryt puodeli ir gamint kava
+
+
+
+
+
 public class Main {
     public static final int ACTION_0 = 0;
     public static final int ACTION_1 = 1;
@@ -104,7 +114,7 @@ public class Main {
             int veiksmas = sc.nextInt();
             switch (veiksmas) {
 
-                case PUODELIO_ACTION_100:
+                /*case PUODELIO_ACTION_100:
                     //------------------------------------------------------------------------------------------Puodelis jkp = new JuodosKavosPuodelis();
                     JuodosKavosPuodelis jkp = new JuodosKavosPuodelis();
 //                    System.out.println("Puodelio talpa: " +jkp.getPuodelioTalpa());
@@ -146,7 +156,7 @@ public class Main {
                     System.out.println("Ar pagamintas: " +ep.getKavosPavadinimas());
                     System.out.println("Informacija KavosPuodelis: " +ep.toString());
 
-                    break;
+                    break;*/
 
 
 
@@ -176,13 +186,19 @@ public class Main {
                     arTesti = false;
                     break;
                 case ACTION_1:
-                    sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_JUODA);
+                    //sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_JUODA);
+                    JuodosKavosPuodelis jkp = new JuodosKavosPuodelis();
+                    sarasas.get(kurisAparatas).gaminkKava(jkp);
                     break;
                 case ACTION_2:
-                    sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_LATTE);
+                    //sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_LATTE);
+                    LattePuodelis lp = new LattePuodelis();
+                    sarasas.get(kurisAparatas).gaminkKava(lp);
                     break;
                 case ACTION_3:
-                    sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_ESPRESSO);
+                    //sarasas.get(kurisAparatas).gaminkKava(KavosAparatas.KAVA_ESPRESSO);
+                    EspressoPuodelis ep = new EspressoPuodelis();
+                    sarasas.get(kurisAparatas).gaminkKava(ep);
                     break;
                 case ACTION_4:
                     sarasas.get(kurisAparatas).plauti();

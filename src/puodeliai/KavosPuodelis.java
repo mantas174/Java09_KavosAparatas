@@ -2,12 +2,12 @@ package puodeliai;
 
 import produktai.Produktai;
 
-public class KavosPuodelis extends Puodelis{
+public class KavosPuodelis extends Puodelis {
     private Produktai produktuKiekis;
     private String kavosPavadinimas;
     private boolean arPagaminta = false;
 
-    public KavosPuodelis(String kavosPavadinimas){
+    public KavosPuodelis(String kavosPavadinimas) {
         this.kavosPavadinimas = kavosPavadinimas;
     }
 
@@ -32,11 +32,11 @@ public class KavosPuodelis extends Puodelis{
     }
 
     @Override
-    public String toString(){
-        if(arPagaminta) {
-            return  produktuKiekis.toString() + " Kavos pavadinimas: " + this.kavosPavadinimas + ", Kava pagaminta " +super.rodykInformacija();
-        }else {
-            return produktuKiekis.toString() + " Kavos pavadinimas: " + this.kavosPavadinimas + ", Kava nepagaminta" +super.toString();
+    public String toString() {
+        if (arPagaminta) {
+            return produktuKiekis.toString() + " Kavos pavadinimas: " + this.kavosPavadinimas + ", Kava pagaminta " + super.rodykInformacija();
+        } else {
+            return produktuKiekis.toString() + " Kavos pavadinimas: " + this.kavosPavadinimas + ", Kava nepagaminta" + super.toString();
         }
     }
 }
